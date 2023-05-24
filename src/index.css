@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: arial, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  font-weight: inherit;
+  color: inherit;
+}
+
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+}
