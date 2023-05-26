@@ -9,6 +9,11 @@ html {
   font-size: 62.5%;
 }
 
+html,
+body {
+  background-color: #edf1f5;
+}
+
 a {
   font-weight: inherit;
   color: inherit;
