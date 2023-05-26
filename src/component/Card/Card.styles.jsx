@@ -18,8 +18,6 @@ export const CardStyleBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url('https://m.media-amazon.com/images/M/MV5BOTJhNzlmNzctNTU5Yy00N2YwLThhMjQtZDM0YjEzN2Y0ZjNhXkEyXkFqcGdeQXVyMTEwMTQ4MzU5._V1_SX300.jpg');
-    background-size: cover;
 
     .movie-space {
     }

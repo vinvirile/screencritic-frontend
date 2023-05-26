@@ -1,5 +1,11 @@
+const DATA = []
+
 const MovieList = () => {
-  return <div>MovieList</div>
+  return (
+    <div className="movie-grid">
+      <MovieList />
+    </div>
+  )
 }
 
 export default MovieList

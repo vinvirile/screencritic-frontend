@@ -8,7 +8,6 @@ const MovieCard = ({ data }) => {
     id,
     title,
     publisher,
-    date,
     tags,
     description,
     poster,
@@ -19,7 +18,13 @@ const MovieCard = ({ data }) => {
   return (
     <Card>
       <div className="movie-flex-box">
-        <div className="movie-image">
+        <div
+          style={{
+            background: `url("${poster}")`,
+            backgroundSize: 'cover',
+          }}
+          className="movie-image"
+        >
           <div className="movie-space"></div>
           <div className="movie-name">
             <p>{title}</p>
@@ -38,8 +43,13 @@ const MovieCard = ({ data }) => {
               <Link to={`movies/${id}`}>View Reviews</Link>
             </div>
             <div className="movie-tags">
-              <Tag bColor="red">Adventure</Tag>
-              <Tag bColor="red">Action</Tag>
+              {/* <Tag bColor="red">Adventure</Tag>
+              <Tag bColor="red">Action</Tag> */}
+              {tags.map((tag, idx) => (
+                <Tag key={idx} bColor="red">
+                  {tag}
+                </Tag>
+              ))}
             </div>
           </div>
         </div>
