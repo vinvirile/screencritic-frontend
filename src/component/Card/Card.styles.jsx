@@ -7,6 +7,8 @@ export const CardStyleBox = styled.div`
   height: 25rem;
   border-radius: 0.4rem;
   overflow: hidden;
+  box-shadow: 0 4px 6px rgba(49, 54, 68, 0.05),
+    0 5px 20px rgba(49, 54, 68, 0.08);
 
   .movie-flex-box {
     display: flex;

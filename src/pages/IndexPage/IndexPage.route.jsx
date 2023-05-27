@@ -1,6 +1,7 @@
 import Card from '../../component/Card/Card.component'
 import HeaderTitle from '../../component/HeaderTitle/HeaderTitle.component'
 import MovieCard from '../../component/MovieCard/MovieCard.component'
+import MovieList from '../../component/MovieList/MovieList.component'
 
 const IndexPage = () => {
   const MOVIE = {
@@ -23,7 +24,9 @@ const IndexPage = () => {
         style={{ transform: 'translate(3rem, -4.2rem)' }}
         className="movie-cards"
       >
-        <MovieCard data={MOVIE} />
+        {/* <MovieCard data={MOVIE} /> */}
+        {/* NEEDS GRID FUNCTION */}
+        <MovieList />
       </div>
     </>
   )
