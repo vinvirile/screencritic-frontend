@@ -6,6 +6,14 @@ export const Nav = styled.div`
   color: #fff;
   font-weight: bold;
 
+  ${(props) =>
+    props.blurNav &&
+    `
+    position: fixed;
+    opacity: 0.5;
+    width: 100%;
+  `}
+
   .logo {
     width: 5.6rem;
     height: 5.6rem;

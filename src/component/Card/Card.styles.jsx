@@ -9,6 +9,17 @@ export const CardStyleBox = styled.div`
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(49, 54, 68, 0.05),
     0 5px 20px rgba(49, 54, 68, 0.08);
+  transition: 0.2s ease;
+
+  ${(props) =>
+    props.pointerOnHover &&
+    `
+  :hover {
+    box-shadow: 0 4px 6px rgba(49, 54, 68, 0.09),
+      0 10px 40px rgba(49, 54, 68, 0.3);
+    cursor: pointer;
+  }
+  `}
 
   .movie-flex-box {
     display: flex;

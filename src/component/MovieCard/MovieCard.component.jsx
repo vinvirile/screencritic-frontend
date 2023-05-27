@@ -16,7 +16,7 @@ const MovieCard = ({ data }) => {
   } = data
 
   return (
-    <Card>
+    <Card pointerOnHover={true}>
       <div className="movie-flex-box">
         <div
           style={{

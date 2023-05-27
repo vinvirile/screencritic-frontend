@@ -1,11 +1,15 @@
+import { useContext } from 'react'
 import Logo from '../../assets/screencritic-logo.png'
 import { Link, Outlet } from 'react-router-dom'
+import { NavBlurContext } from '../../context/navblur.context'
 import { Nav } from './Navigation.styles'
 
 const Navigation = () => {
+  const { blurNav } = useContext(NavBlurContext)
+
   return (
     <>
-      <Nav>
+      <Nav blurNav={blurNav}>
         <div className="navigation-box">
           <div className="container">
             <div className="box">
