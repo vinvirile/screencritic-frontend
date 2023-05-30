@@ -5,6 +5,11 @@ export const Nav = styled.div`
   padding: 0.8rem 0;
   color: #fff;
   font-weight: bold;
+  transition: 0.3s ease;
+
+  :hover {
+    opacity: 1;
+  }
 
   ${(props) =>
     props.blurNav &&
