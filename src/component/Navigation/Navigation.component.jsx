@@ -3,6 +3,7 @@ import Logo from '../../assets/screencritic-logo.png'
 import { Link, Outlet } from 'react-router-dom'
 import { NavBlurContext } from '../../context/navblur.context'
 import { Nav } from './Navigation.styles'
+import Container from '../Container/Container.component'
 
 const Navigation = () => {
   const { blurNav } = useContext(NavBlurContext)
@@ -11,7 +12,7 @@ const Navigation = () => {
     <>
       <Nav blurNav={blurNav}>
         <div className="navigation-box">
-          <div className="container">
+          <Container>
             <div className="box">
               <div className="logo-container">
                 <Link className="screencritic" to="./">
@@ -30,7 +31,7 @@ const Navigation = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </Container>
         </div>
       </Nav>
       <Outlet />

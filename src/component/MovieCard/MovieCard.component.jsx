@@ -1,9 +1,11 @@
+import StarFillIcon from '../../icons/StarFill/StarFill.icon'
 import Card from '../Card/Card.component'
 import Tag from '../Tag/Tag.component'
-import { ReactComponent as StarFill } from '../../assets/star-fill.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const MovieCard = ({ data }) => {
+  const navigate = useNavigate()
+
   const {
     id,
     title,
@@ -15,8 +17,12 @@ const MovieCard = ({ data }) => {
     releaseDate,
   } = data
 
+  const navigateHandler = () => {
+    navigate(`movies/${id}`)
+  }
+
   return (
-    <Card pointerOnHover={true}>
+    <Card onClick={navigateHandler} pointerOnHover={true}>
       <div className="movie-flex-box">
         <div
           style={{
@@ -38,7 +44,7 @@ const MovieCard = ({ data }) => {
           </div>
           <div className="movie-extras">
             <div className="movie-ratings">
-              <StarFill style={{ fill: 'orange', width: '1.8rem' }} />
+              <StarFillIcon width="1.8rem" />
               <span>{stars}/10</span>
               <Link to={`movies/${id}`}>View Reviews</Link>
             </div>

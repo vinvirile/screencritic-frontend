@@ -11,7 +11,7 @@ const IndexPage = () => {
   return (
     <>
       <HeaderTitle title="Movies" />
-      <div style={{ transform: 'translateY(-4.2rem)' }} className="movie-cards">
+      <div style={{ transform: 'translateY(-3.6rem)' }} className="movie-cards">
         <MovieList />
       </div>
     </>

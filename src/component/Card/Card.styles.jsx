@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CardStyleBox = styled.div`
   background-color: #fff;
-  width: 46rem;
+  width: 50rem;
   color: #000;
   height: 25rem;
   border-radius: 0.4rem;
@@ -71,7 +71,7 @@ export const CardStyleBox = styled.div`
 
     .movie-description {
       padding: 0.8rem;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
 
     .movie-ratings {
