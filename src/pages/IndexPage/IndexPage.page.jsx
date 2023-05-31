@@ -3,9 +3,15 @@ import { NavBlurContext } from '../../context/navblur.context'
 import HeaderTitle from '../../component/HeaderTitle/HeaderTitle.component'
 import MovieList from '../../component/MovieList/MovieList.component'
 
-const IndexPage = () => {
-  const { setBlurNav } = useContext(NavBlurContext)
+/*
+ *
+ * This is the component of the index page
+ *
+ */
 
+const IndexPage = () => {
+  // Sets the navigation to have no blur/opacity while in the index page.
+  const { setBlurNav } = useContext(NavBlurContext)
   setBlurNav(false)
 
   return (

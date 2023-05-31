@@ -3,11 +3,13 @@ import Card from '../Card/Card.component'
 import Tag from '../Tag/Tag.component'
 import { Link, useNavigate } from 'react-router-dom'
 
+// This is the template of each movie card in the index page
+
 const MovieCard = ({ data }) => {
   const navigate = useNavigate()
 
   const {
-    id,
+    _id: id,
     title,
     publisher,
     tags,
@@ -17,6 +19,7 @@ const MovieCard = ({ data }) => {
     releaseDate,
   } = data
 
+  // this handles the navigation to the movie page once the user clicks on the movie card
   const navigateHandler = () => {
     navigate(`movies/${id}`)
   }

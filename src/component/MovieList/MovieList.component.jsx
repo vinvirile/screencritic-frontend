@@ -1,17 +1,17 @@
+import { useContext } from 'react'
+import { MoviesContext } from '../../context/movies.context'
 import MovieCard from '../MovieCard/MovieCard.component'
-import DATA from '../../data/movies'
 import { MovieGrid } from './MovieList.styles'
 
-const MovieList = () => {
-  /* 
-  
-  ADD GRID TO THIS AND IMAGES DO NOT WORK OTHER THAN SUPER MARIO BROS MOVIE
+// This will show all the movies in a grid system.
 
-  */
+const MovieList = () => {
+  // This is context of a state that pulls the movies from the database.
+  const { moviesData } = useContext(MoviesContext)
 
   return (
     <MovieGrid>
-      {DATA.map((movieData) => (
+      {moviesData.map((movieData) => (
         <MovieCard key={movieData.id} data={movieData} />
       ))}
     </MovieGrid>
