@@ -12,7 +12,7 @@ export const MoviesProvider = ({ children }) => {
   // connects to server to pull movies from the database and store its to the state
   useEffect(() => {
     axios
-      .get('http://localhost:7000/api/movies/data')
+      .get('http://api.virile.vin/api/movies/data')
       .then(({ data }) => setMoviesData(data.movies))
   }, [])
 
