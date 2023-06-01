@@ -3,13 +3,11 @@ import { useLocation } from 'react-router-dom'
 import { NavBlurContext } from '../../context/navblur.context'
 import { MoviesContext } from '../../context/movies.context'
 import Banner from '../../component/Banner/Banner.component'
-import Container from '../../component/Container/Container.component'
-import { MovieDetails } from './MoviePage.styles'
-import StarFillIcon from '../../icons/StarFill/StarFill.icon'
+import MovieOverview from '../../component/MovieOverview/MovieOverview.component'
 
 /*
  *
- *  This is the movie component page.
+ * This is the movie component page.
  * Path: "/movies/*"
  *
  */
@@ -46,34 +44,15 @@ const MoviePage = () => {
   })
   const movie = filteredMovie[0] || {}
 
+  /*
+   * To make banner pop, setting setBlurNav to true makes the nav stay at the top of the screen as you scroll
+   * It also lowers the opacity of the nav bar
+   */
   setBlurNav(true)
   return (
     <>
       <Banner coverUrl={movie.cover} />
-      <MovieDetails>
-        <Container>
-          <div className="movie-detail-box">
-            <div className="movie-poster-btns">
-              <img className="movie-poster" src={movie.poster} />
-              <div className="movie-stars">
-                <StarFillIcon className="star-icon" width="2.4rem" />
-                <span className="star-rating">{movie.stars}</span>
-              </div>
-              <a
-                href={movie.trailer || ''}
-                target="_blank"
-                className="trailer-btn"
-              >
-                Watch Trailer
-              </a>
-            </div>
-            <div className="movie-description">
-              <h2>{movie.title}</h2>
-              <p>{movie.summary}</p>
-            </div>
-          </div>
-        </Container>
-      </MovieDetails>
+      <MovieOverview movie={movie} />
     </>
   )
 }
