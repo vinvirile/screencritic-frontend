@@ -14,7 +14,7 @@ export const MoviesProvider = ({ children }) => {
     let API_URL = import.meta.env.VITE_API_URL
 
     axios
-      .get(`${API_URL}/api/movies/data`)
+      .get(`${API_URL}api/movies/data`)
       .then(({ data }) => setMoviesData(data.movies))
   }, [])
 
