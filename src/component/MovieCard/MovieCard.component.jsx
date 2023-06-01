@@ -25,7 +25,7 @@ const MovieCard = ({ data }) => {
   }
 
   return (
-    <Card onClick={navigateHandler} pointerOnHover={true}>
+    <Card fillGrid={true} onClick={navigateHandler} pointerOnHover={true}>
       <div className="movie-flex-box">
         <div
           style={{

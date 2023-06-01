@@ -12,6 +12,12 @@ export const CardStyleBox = styled.div`
   transition: 0.2s ease;
 
   ${(props) =>
+    props.fillGrid &&
+    `
+    width: 100%;
+  `}
+
+  ${(props) =>
     props.pointerOnHover &&
     `
   :hover {
