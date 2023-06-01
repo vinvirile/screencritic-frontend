@@ -1,12 +1,17 @@
 import { useContext } from 'react'
 import Logo from '../../assets/screencritic-logo.png'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { NavBlurContext } from '../../context/navblur.context'
 import { Nav } from './Navigation.styles'
 import Container from '../Container/Container.component'
 
 const Navigation = () => {
   const { blurNav } = useContext(NavBlurContext)
+  const navigate = useNavigate()
+
+  const backToHome = () => {
+    navigate('../../')
+  }
 
   return (
     <>
@@ -19,7 +24,12 @@ const Navigation = () => {
                   <img className="logo" src={Logo} alt="Logo" />
                 </Link>
                 <div>
-                  <span className="logo-name">ScreenCritics</span>
+                  <span onClick={backToHome} className="logo-name">
+                    ScreenCritics
+                    {import.meta.env.MODE === 'development' && (
+                      <sup style={{ color: 'red', fontSize: '1rem' }}>DEV</sup>
+                    )}
+                  </span>
                 </div>
               </div>
               <ul className="nav-links">

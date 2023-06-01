@@ -34,6 +34,7 @@ export const Nav = styled.div`
     position: relative;
     top: 0.8rem;
     left: -0.8rem;
+    cursor: pointer;
   }
 
   .box {

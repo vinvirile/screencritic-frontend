@@ -12,7 +12,7 @@ const MovieList = () => {
   return (
     <MovieGrid>
       {moviesData.map((movieData) => (
-        <MovieCard key={movieData.id} data={movieData} />
+        <MovieCard key={movieData._id} data={movieData} />
       ))}
     </MovieGrid>
   )
