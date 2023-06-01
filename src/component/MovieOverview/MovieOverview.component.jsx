@@ -1,5 +1,5 @@
 import React from 'react'
-import { MovieDetails } from '../../pages/MoviePage/MoviePage.styles'
+import { MovieDetails } from './MovieOverview.styles'
 import Container from '../Container/Container.component'
 import StarFillIcon from '../../icons/StarFill/StarFill.icon'
 
