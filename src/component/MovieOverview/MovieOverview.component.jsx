@@ -3,6 +3,8 @@ import { MovieDetails } from './MovieOverview.styles'
 import Container from '../Container/Container.component'
 import StarFillIcon from '../../icons/StarFill/StarFill.icon'
 
+// Movie's overview for the MoviePage
+
 const MovieOverview = ({ movie }) => {
   return (
     <MovieDetails>

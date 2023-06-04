@@ -4,6 +4,7 @@ import { NavBlurContext } from '../../context/navblur.context'
 import { MoviesContext } from '../../context/movies.context'
 import Banner from '../../component/Banner/Banner.component'
 import MovieOverview from '../../component/MovieOverview/MovieOverview.component'
+import MovieExtra from '../../component/MovieExtra/MovieExtra.component'
 
 /*
  *
@@ -53,6 +54,7 @@ const MoviePage = () => {
     <>
       <Banner coverUrl={movie.cover} />
       <MovieOverview movie={movie} />
+      <MovieExtra movie={movie} />
     </>
   )
 }
