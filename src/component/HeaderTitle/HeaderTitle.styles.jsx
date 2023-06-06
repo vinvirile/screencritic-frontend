@@ -11,5 +11,11 @@ export const Header = styled.div`
     margin-left: 3rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+
+    ${(props) =>
+      props.centered &&
+      `
+      text-align: center;
+    `}
   }
 `

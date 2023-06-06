@@ -33,9 +33,11 @@ const Navigation = () => {
                 </div>
               </div>
               <ul className="nav-links">
-                <li className="nav-link">Login</li>
                 <li className="nav-link">
-                  <Link to="/register">
+                  <Link to="../../login">Login</Link>
+                </li>
+                <li className="nav-link">
+                  <Link to="../../register">
                     <button className="nav-link-btn">Register</button>
                   </Link>
                 </li>

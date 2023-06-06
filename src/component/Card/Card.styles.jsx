@@ -12,6 +12,12 @@ export const CardStyleBox = styled.div`
   transition: 0.2s ease;
 
   ${(props) =>
+    props.noHeight &&
+    `
+    height: auto;
+  `}
+
+  ${(props) =>
     props.fillGrid &&
     `
     width: 100%;
@@ -109,5 +115,53 @@ export const CardStyleBox = styled.div`
         margin: 0 0.2rem;
       }
     }
+  }
+
+  .registration-form {
+    padding: 2.4rem;
+    font-size: 1.2rem;
+  }
+
+  input,
+  textarea {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #000;
+  }
+
+  .form-additional-info {
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+
+    a,
+    a:link,
+    a:visited {
+      font-weight: 600;
+      color: #3577ff;
+    }
+  }
+
+  .form-error-box {
+    border-radius: 1rem;
+    padding: 1.2rem;
+    border: 1px solid red;
+    color: red;
+    display: flex;
+    font-size: 1.8rem;
+
+    .error-icon {
+      border-radius: 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+    }
+  }
+
+  .form-error-message {
+    margin-left: 1.2rem;
   }
 `

@@ -1,8 +1,8 @@
 import { Header } from './HeaderTitle.styles'
 
-const HeaderTitle = ({ title }) => {
+const HeaderTitle = ({ title, centered }) => {
   return (
-    <Header>
+    <Header centered={centered}>
       <h2>{title}</h2>
     </Header>
   )

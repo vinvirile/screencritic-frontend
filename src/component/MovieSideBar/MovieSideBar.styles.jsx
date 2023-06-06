@@ -15,6 +15,10 @@ export const MovieSideBarBox = styled.div`
     :first-child {
       margin-top: 0;
     }
+
+    :last-child {
+      margin-bottom: 0;
+    }
   }
 
   .movie-category-title {
