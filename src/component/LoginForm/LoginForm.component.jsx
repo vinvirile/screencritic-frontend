@@ -1,11 +1,23 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useContext, useEffect } from 'react'
+import { UserContext } from '../../context/user.context'
 import Card from '../Card/Card.component'
 import { Link } from 'react-router-dom'
 import InputGroup from '../InputGroup/InputGroup.component'
 import Button from '../Button/Button.component'
+import axios from 'axios'
 
 const LoginForm = () => {
   const [error, setError] = useState(null)
+
+  // grab user context
+  const { userData } = useContext(UserContext)
+
+  // If User is already logged in, send user back to the index page
+  useEffect(() => {
+    if (userData) {
+      window.location = '../../'
+    }
+  }, [userData])
 
   // to prevent re-renders, using useRef to do form handling
   const inputFields = {
@@ -13,6 +25,7 @@ const LoginForm = () => {
     password: useRef(),
   }
 
+  // login handler
   const submitHandler = (e) => {
     e.preventDefault()
 
@@ -33,7 +46,18 @@ const LoginForm = () => {
       return setError('Missing @ character for email!')
 
     /* api call here */
-    setError('Under Construction!')
+    const API_URL = import.meta.env.VITE_API_URL
+    axios
+      .post(
+        `${API_URL}api/login`,
+        { email, password },
+        { withCredentials: true }
+      )
+      .then(({ data }) => {
+        if (data.success) {
+          window.location = '../'
+        }
+      })
     console.log(fields)
   }
 

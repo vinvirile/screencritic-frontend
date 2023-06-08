@@ -2,15 +2,30 @@ import { useContext } from 'react'
 import Logo from '../../assets/screencritic-logo.png'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { NavBlurContext } from '../../context/navblur.context'
+import { UserContext } from '../../context/user.context'
 import { Nav } from './Navigation.styles'
 import Container from '../Container/Container.component'
+import axios from 'axios'
 
 const Navigation = () => {
   const { blurNav } = useContext(NavBlurContext)
+  const { userData, setUserData } = useContext(UserContext)
   const navigate = useNavigate()
 
   const backToHome = () => {
     navigate('../../')
+  }
+
+  const logoutHandler = () => {
+    setUserData(null)
+    let API_URL = import.meta.env.VITE_API_URL
+    axios.patch(
+      `${API_URL}api/logout`,
+      {},
+      {
+        withCredentials: true,
+      }
+    )
   }
 
   return (
@@ -33,14 +48,24 @@ const Navigation = () => {
                 </div>
               </div>
               <ul className="nav-links">
-                <li className="nav-link">
-                  <Link to="../../login">Login</Link>
-                </li>
-                <li className="nav-link">
-                  <Link to="../../register">
-                    <button className="nav-link-btn">Register</button>
-                  </Link>
-                </li>
+                {userData ? (
+                  <li className="nav-link">
+                    <span style={{ cursor: 'pointer' }} onClick={logoutHandler}>
+                      Logout
+                    </span>
+                  </li>
+                ) : (
+                  <>
+                    <li className="nav-link">
+                      <Link to="../../login">Login</Link>
+                    </li>
+                    <li className="nav-link">
+                      <Link to="../../register">
+                        <button className="nav-link-btn">Register</button>
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </Container>
