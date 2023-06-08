@@ -11,16 +11,19 @@ export const MoviesProvider = ({ children }) => {
 
   // connects to server to pull movies from the database and store its to the state
   useEffect(() => {
-    let API_URL = import.meta.env.VITE_API_URL
+    setTimeout(() => {
+      let API_URL = import.meta.env.VITE_API_URL
 
-    axios
-      .get(`${API_URL}api/movies/data`)
-      .then(({ data }) => setMoviesData(data.movies))
+      axios
+        .get(`${API_URL}api/movies/data`)
+        .then(({ data }) => setMoviesData(data.movies))
+    }, 750)
   }, [])
 
   // will only need the moviesData state pass through the whole application
   const value = {
     moviesData,
+    setMoviesData,
   }
 
   return (

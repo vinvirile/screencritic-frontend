@@ -164,4 +164,42 @@ export const CardStyleBox = styled.div`
   .form-error-message {
     margin-left: 1.2rem;
   }
+
+  .description-skeleton {
+    p {
+      margin: 1.2rem 0;
+    }
+  }
+
+  .skeleton-line,
+  .skeleton-line-sm,
+  .skeleton-line-md,
+  .skeleton-line-lg {
+    background: linear-gradient(90deg, #bababa 25%, #999 50%, #bababa 75%);
+    background-size: 200% 100%;
+    border-radius: 0.2rem;
+    height: 1.2rem;
+    animation: loading 1.5s infinite;
+  }
+
+  .skeleton-line-sm {
+    width: 15%;
+  }
+
+  .skeleton-line-md {
+    width: 40%;
+  }
+
+  .skeleton-line-lg {
+    width: 80%;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
 `
