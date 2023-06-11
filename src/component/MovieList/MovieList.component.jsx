@@ -11,10 +11,11 @@ const MovieList = () => {
   const { moviesData, setMoviesData } = useContext(MoviesContext)
 
   // waits for movie skeletons to be loaded
-  let movieSkeletons = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  const movieSkeletons = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   return (
     <MovieGrid>
+      {/* Loading Skeleton while loading movies from api  */}
       {moviesData.length === 0 ? (
         <>
           {movieSkeletons.map((_, idx) => (
@@ -22,14 +23,11 @@ const MovieList = () => {
           ))}
         </>
       ) : (
+        // When movies are recieved, load them
         moviesData.map((movieData) => (
           <MovieCard key={movieData._id} data={movieData} />
         ))
       )}
-
-      {/* {moviesData.map((movieData) => (
-        <MovieCard key={movieData._id} data={movieData} />
-      ))} */}
     </MovieGrid>
   )
 }

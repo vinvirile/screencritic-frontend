@@ -9,7 +9,7 @@ import axios from 'axios'
 
 const Navigation = () => {
   const { blurNav } = useContext(NavBlurContext)
-  const { userData, setUserData } = useContext(UserContext)
+  const { userData, setUserData, isUserLoggedIn } = useContext(UserContext)
   const navigate = useNavigate()
 
   const backToHome = () => {
@@ -17,7 +17,7 @@ const Navigation = () => {
   }
 
   const logoutHandler = () => {
-    setUserData(null)
+    setUserData({})
     let API_URL = import.meta.env.VITE_API_URL
     axios.patch(
       `${API_URL}api/logout`,
@@ -48,7 +48,7 @@ const Navigation = () => {
                 </div>
               </div>
               <ul className="nav-links">
-                {userData ? (
+                {isUserLoggedIn ? (
                   <li className="nav-link">
                     <span style={{ cursor: 'pointer' }} onClick={logoutHandler}>
                       Logout

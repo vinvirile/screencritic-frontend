@@ -1,4 +1,5 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useContext } from 'react'
+import { UserContext } from '../../context/user.context'
 import Card from '../Card/Card.component'
 import { Link } from 'react-router-dom'
 import InputGroup from '../InputGroup/InputGroup.component'
@@ -18,6 +19,14 @@ const RegisterForm = () => {
       window.location = '../login'
     }
   }, [success])
+
+  // If User is already logged in, send user back to the index page
+  const { isUserLoggedIn } = useContext(UserContext)
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      window.location = '../../'
+    }
+  }, [isUserLoggedIn])
 
   // to prevent re-renders, using useRef to do form handling
   const inputFields = {

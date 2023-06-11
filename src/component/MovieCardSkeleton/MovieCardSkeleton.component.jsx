@@ -1,5 +1,4 @@
 import Card from '../Card/Card.component'
-import Tag from '../Tag/Tag.component'
 
 const MovieCardSkeleton = () => {
   return (
@@ -31,6 +30,7 @@ const MovieCardSkeleton = () => {
           </div>
           <div className="movie-extras">
             <div className="movie-ratings">
+              <span className="skeleton-line-sm"></span>
               <span className="skeleton-line-sm"></span>
             </div>
             <div className="movie-tags">

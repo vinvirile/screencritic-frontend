@@ -100,7 +100,8 @@ export const CardStyleBox = styled.div`
     .movie-extras {
       margin-top: auto;
 
-      a {
+      a,
+      span:last-child {
         margin-left: auto;
         font-size: 1.2rem;
       }

@@ -10,14 +10,14 @@ const LoginForm = () => {
   const [error, setError] = useState(null)
 
   // grab user context
-  const { userData } = useContext(UserContext)
+  const { isUserLoggedIn } = useContext(UserContext)
 
   // If User is already logged in, send user back to the index page
   useEffect(() => {
-    if (userData) {
+    if (isUserLoggedIn) {
       window.location = '../../'
     }
-  }, [userData])
+  }, [isUserLoggedIn])
 
   // to prevent re-renders, using useRef to do form handling
   const inputFields = {

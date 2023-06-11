@@ -24,3 +24,9 @@ a:active {
   text-decoration: none;
   font-weight: 2rem;
 }
+
+.avatar {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+}

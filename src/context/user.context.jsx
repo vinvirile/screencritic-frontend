@@ -2,12 +2,15 @@ import { createContext, useState, useEffect } from 'react'
 import axios from 'axios'
 
 export const UserContext = createContext({
-  userData: null,
+  userData: {},
+  isUserLoggedIn: false,
   setUserData: () => null,
 })
 
 export const UserProvider = ({ children }) => {
-  const [userData, setUserData] = useState(null)
+  const [userData, setUserData] = useState({})
+
+  const isUserLoggedIn = Object.keys(userData).length > 0
 
   useEffect(() => {
     const API_URL = import.meta.env.VITE_API_URL
@@ -25,7 +28,7 @@ export const UserProvider = ({ children }) => {
       })
   }, [])
 
-  const value = { userData, setUserData }
+  const value = { userData, isUserLoggedIn, setUserData }
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }
