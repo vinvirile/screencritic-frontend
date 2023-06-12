@@ -1,16 +1,23 @@
 import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../../context/user.context'
-import InputGroup from '../InputGroup/InputGroup.component'
-import Button from '../Button/Button.component'
 import { MovieReviewsBox } from './ReviewSection.styles'
 import axios from 'axios'
+import Reviews from '../Reviews/Reviews.component'
+import ReviewInput from '../ReviewInput/ReviewInput.component'
+import { Link } from 'react-router-dom'
 
 const ReviewSection = ({ movieId }) => {
-  const [reviews, setReviews] = useState([])
   const { userData, isUserLoggedIn } = useContext(UserContext)
+  const [reviews, setReviews] = useState([])
   const isLoading = reviews.length
 
-  useEffect(() => {}, [movieId])
+  useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL
+    axios.get(`${API_URL}api/reviews/data?m=${movieId}`).then(({ data }) => {
+      setReviews(data.arr)
+    })
+    console.log('effect ran again')
+  }, [movieId])
 
   return (
     <MovieReviewsBox>
@@ -20,19 +27,19 @@ const ReviewSection = ({ movieId }) => {
             <div className="userinfo">
               <div className="userinfo-avatar">
                 <img className="avatar" src="../../avatar.png" />
-                <p>
+                <p className="userinfo-user">
                   Review as <span className="user">{userData.username}</span>
                 </p>
               </div>
             </div>
-            <div className="userinput-box">
-              <InputGroup type="textarea" placeholder="Write a review..." />
-              <Button>Send</Button>
-            </div>
+            <ReviewInput mid={movieId} setReviews={setReviews} />
           </>
         ) : (
-          <p>You are not logged in...</p>
+          <p style={{ marginBottom: '1.2rem' }} className="userinfo-user">
+            <Link to="../../login">Login</Link> to create a review!
+          </p>
         )}
+        <Reviews reviews={reviews} />
       </div>
     </MovieReviewsBox>
   )
