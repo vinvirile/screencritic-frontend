@@ -1,10 +1,14 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../base/devices'
 
 export const MovieDetails = styled.div`
   background-color: #fff;
 
   .movie-detail-box {
     display: flex;
+    @media (max-width: ${breakpoints.md}) {
+      display: block;
+    }
   }
 
   .movie-poster-btns {

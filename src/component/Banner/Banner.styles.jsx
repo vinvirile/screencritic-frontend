@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../base/devices'
 
 export const BannerBox = styled.div`
   height: 36rem;
@@ -11,4 +12,8 @@ export const BannerBox = styled.div`
     background-size: cover;
     background-position: center center;
   `}
+
+  @media (max-width: ${breakpoints.lg}) {
+    height: 18rem;
+  }
 `

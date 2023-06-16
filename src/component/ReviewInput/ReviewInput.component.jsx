@@ -22,7 +22,6 @@ const ReviewInput = ({ mid, setReviews }) => {
         { withCredentials: true }
       )
       .then(({ data }) => {
-        console.log(data)
         reviewInput.current.value = ''
 
         setReviews((reviews) => {

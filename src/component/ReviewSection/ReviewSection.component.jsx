@@ -9,14 +9,12 @@ import { Link } from 'react-router-dom'
 const ReviewSection = ({ movieId }) => {
   const { userData, isUserLoggedIn } = useContext(UserContext)
   const [reviews, setReviews] = useState([])
-  const isLoading = reviews.length
 
   useEffect(() => {
     const API_URL = import.meta.env.VITE_API_URL
     axios.get(`${API_URL}api/reviews/data?m=${movieId}`).then(({ data }) => {
       setReviews(data.arr)
     })
-    console.log('effect ran again')
   }, [movieId])
 
   return (

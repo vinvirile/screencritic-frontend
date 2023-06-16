@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../base/devices'
 
 export const Nav = styled.div`
   background-color: #2b2d42;
@@ -6,6 +7,10 @@ export const Nav = styled.div`
   color: #fff;
   font-weight: bold;
   transition: 0.3s ease;
+
+  @media (max-width: ${breakpoints.md}) {
+    padding: 0;
+  }
 
   :hover {
     opacity: 1;
@@ -21,7 +26,10 @@ export const Nav = styled.div`
 
   .logo {
     width: 5.6rem;
-    height: 5.6rem;
+
+    @media (max-width: ${breakpoints.md}) {
+      width: 3.8rem;
+    }
   }
 
   .logo-container {
@@ -35,6 +43,10 @@ export const Nav = styled.div`
     top: 0.8rem;
     left: -0.8rem;
     cursor: pointer;
+
+    @media (max-width: ${breakpoints.md}) {
+      font-size: 1.6rem;
+    }
   }
 
   .box {
