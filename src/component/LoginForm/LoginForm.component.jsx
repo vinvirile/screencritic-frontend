@@ -62,10 +62,7 @@ const LoginForm = () => {
   }
 
   return (
-    <Card
-      noHeight={true}
-      style={{ transform: 'translateY(-2rem)', margin: '0 auto' }}
-    >
+    <Card noHeight={true} authCard={true}>
       <form
         className="registration-form"
         method="POST"

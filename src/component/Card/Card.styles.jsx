@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../base/devices'
 
 export const CardStyleBox = styled.div`
   background-color: #fff;
@@ -31,6 +32,21 @@ export const CardStyleBox = styled.div`
       0 10px 40px rgba(49, 54, 68, 0.3);
     cursor: pointer;
   }
+  `}
+
+  ${(props) =>
+    props.authCard &&
+    `
+    transform: translateY(-2rem);
+    margin: 0 auto;
+    @media (max-width: ${breakpoints.md}) {
+      width: 70%;
+
+      input {
+        width: 80% !important;
+      }
+    }
+
   `}
 
   .movie-flex-box {

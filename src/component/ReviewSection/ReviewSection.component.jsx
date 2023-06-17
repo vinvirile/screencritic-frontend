@@ -5,6 +5,7 @@ import axios from 'axios'
 import Reviews from '../Reviews/Reviews.component'
 import ReviewInput from '../ReviewInput/ReviewInput.component'
 import { Link } from 'react-router-dom'
+import LockIcon from '../../icons/Lock/Lock.component'
 
 const ReviewSection = ({ movieId }) => {
   const { userData, isUserLoggedIn } = useContext(UserContext)
@@ -34,7 +35,10 @@ const ReviewSection = ({ movieId }) => {
           </>
         ) : (
           <p style={{ marginBottom: '1.2rem' }} className="userinfo-user">
-            <Link to="../../login">Login</Link> to create a review!
+            <LockIcon />
+            <span>
+              Please <Link to="../../login">Login</Link> to create a review!
+            </span>
           </p>
         )}
         <Reviews reviews={reviews} />

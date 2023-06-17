@@ -13,8 +13,20 @@ export const MovieReviewsBox = styled.div`
     }
 
     .userinfo-user {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-left: 1.2rem;
+      margin-top: 1.2rem;
+      padding-bottom: 2.4rem;
+      span {
+        margin-left: 1.6rem;
+      }
+      a {
+        font-weight: 600;
+      }
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
     }
 
     .userinput-box {

@@ -1,10 +1,11 @@
-import { useContext } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useEffect, useContext } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { NavBlurContext } from '../../context/navblur.context'
 import { MoviesContext } from '../../context/movies.context'
 import Banner from '../../component/Banner/Banner.component'
 import MovieOverview from '../../component/MovieOverview/MovieOverview.component'
 import MovieExtra from '../../component/MovieExtra/MovieExtra.component'
+import ScrollToTop from '../../component/ScrollToTop/ScrollToTop.component'
 
 /*
  *
@@ -50,11 +51,13 @@ const MoviePage = () => {
    * It also lowers the opacity of the nav bar
    */
   setBlurNav(true)
+
   return (
     <>
       <Banner coverUrl={movie.cover} />
       <MovieOverview movie={movie} />
       <MovieExtra movie={movie} />
+      <ScrollToTop />
     </>
   )
 }
