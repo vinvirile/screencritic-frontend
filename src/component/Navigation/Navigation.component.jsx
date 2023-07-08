@@ -1,15 +1,15 @@
 import { useContext } from 'react'
 import Logo from '../../assets/screencritic-logo.png'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
-import { NavBlurContext } from '../../context/navblur.context'
+import { NavConditionContext } from '../../context/navcondition.context'
 import { UserContext } from '../../context/user.context'
 import { Nav } from './Navigation.styles'
 import Container from '../Container/Container.component'
 import axios from 'axios'
 
 const Navigation = () => {
-  const { blurNav } = useContext(NavBlurContext)
-  const { userData, setUserData, isUserLoggedIn } = useContext(UserContext)
+  const { blurNav, staticNav } = useContext(NavConditionContext)
+  const { setUserData, isUserLoggedIn } = useContext(UserContext)
   const navigate = useNavigate()
 
   const backToHome = () => {
@@ -30,7 +30,7 @@ const Navigation = () => {
 
   return (
     <>
-      <Nav blurNav={blurNav}>
+      <Nav blurNav={blurNav} staticNav={staticNav}>
         <div className="navigation-box">
           <Container>
             <div className="box">

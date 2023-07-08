@@ -7,6 +7,9 @@ export const Nav = styled.div`
   color: #fff;
   font-weight: bold;
   transition: 0.3s ease;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
 
   @media (max-width: ${breakpoints.md}) {
     padding: 0;
@@ -19,9 +22,14 @@ export const Nav = styled.div`
   ${(props) =>
     props.blurNav &&
     `
-    position: fixed;
     opacity: 0.5;
     width: 100%;
+  `}
+
+  ${(props) =>
+    props.staticNav &&
+    `
+    position: static !important;
   `}
 
   .logo {

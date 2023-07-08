@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { NavBlurContext } from '../../context/navblur.context'
+import { useLocation } from 'react-router-dom'
+import { NavConditionContext } from '../../context/navcondition.context'
 import { MoviesContext } from '../../context/movies.context'
 import Banner from '../../component/Banner/Banner.component'
 import MovieOverview from '../../component/MovieOverview/MovieOverview.component'
@@ -15,7 +15,7 @@ import ScrollToTop from '../../component/ScrollToTop/ScrollToTop.component'
  */
 
 const MoviePage = () => {
-  const { setBlurNav } = useContext(NavBlurContext)
+  const { setBlurNav, setStaticNav } = useContext(NavConditionContext)
   const { moviesData } = useContext(MoviesContext)
 
   /*
@@ -50,7 +50,21 @@ const MoviePage = () => {
    * To make banner pop, setting setBlurNav to true makes the nav stay at the top of the screen as you scroll
    * It also lowers the opacity of the nav bar
    */
-  setBlurNav(true)
+
+  useEffect(() => {
+    setBlurNav(true)
+    setStaticNav(false)
+    const handleScroll = () => {
+      const scrollTop = window.pageYoffset || document.documentElement.scrollTop
+
+      const isScrolledPastBanner = scrollTop < 139
+
+      setBlurNav(isScrolledPastBanner)
+      console.log('Scroll Y offset: ' + scrollTop)
+      console.log('Show Nav: ' + isScrolledPastBanner)
+    }
+    window.addEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <>

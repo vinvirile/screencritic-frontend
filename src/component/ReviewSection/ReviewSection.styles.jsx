@@ -33,6 +33,7 @@ export const MovieReviewsBox = styled.div`
     }
     .user {
       font-weight: 600;
+      margin: 0 !important;
     }
   }
 `

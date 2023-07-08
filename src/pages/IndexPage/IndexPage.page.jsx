@@ -1,7 +1,8 @@
 import { useContext } from 'react'
-import { NavBlurContext } from '../../context/navblur.context'
+import { NavConditionContext } from '../../context/navcondition.context'
 import HeaderTitle from '../../component/HeaderTitle/HeaderTitle.component'
 import MovieList from '../../component/MovieList/MovieList.component'
+import ScrollToTop from '../../component/ScrollToTop/ScrollToTop.component'
 
 /*
  *
@@ -11,11 +12,14 @@ import MovieList from '../../component/MovieList/MovieList.component'
 
 const IndexPage = () => {
   // Sets the navigation to have no blur/opacity while in the index page.
-  const { setBlurNav } = useContext(NavBlurContext)
+  const { setBlurNav, setStaticNav } = useContext(NavConditionContext)
+
   setBlurNav(false)
+  setStaticNav(true)
 
   return (
     <>
+      <ScrollToTop />
       <HeaderTitle title="Movies" />
       <div style={{ transform: 'translateY(-3.6rem)' }} className="movie-cards">
         <MovieList />
